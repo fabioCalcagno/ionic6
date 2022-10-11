@@ -1,0 +1,24 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar [color]="this.menuActualScreen.menuColor">
+      <ion-title>Navegue entre as features</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- meu content -->
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar [color]="this.menuActualScreen.color">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ this.menuActualScreen.tituloTela }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+</div>

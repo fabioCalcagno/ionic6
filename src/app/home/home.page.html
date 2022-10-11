@@ -1,20 +1,33 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <ion-toolbar color="primary" >
+    <ion-searchbar animated="true" show-clear-button="always" placeholder="Buscar encomenda" (ionChange)="buscarEncomenda($event)" clear-icon="trash-bin"></ion-searchbar>
+   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-progress-bar *ngIf="loading" type="indeterminate" color="secondary"></ion-progress-bar>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list [inset]="true">
+        <ion-item *ngFor="let encomenda of encomendaTracking" >
+          <div class="encomenda-header-container">
+            <ion-label position="stacked" >{{ encomenda.dtHrCriado | date:'dd/MM/yyyy HH:mm' }}</ion-label>
+                  
+                <div class="location-wrapper">
+                  <ion-icon name="location-outline"></ion-icon>
+                  <ion-label position="stacked" class="location" *ngIf="encomenda.unidade.endereco?.cidade as value; else locationPais">
+                  </ion-label> 
+                  <ng-template #locationPais > 
+                    <ion-label class="location" position="stacked">{{encomenda.unidade.endereco.nome}}</ion-label> 
+                  </ng-template>
+                </div>      
+          </div>
+          
+          <div class="encomenda-conatiner">
+            <img [src]="this.correioService.baseUrl+encomenda.urlIcone" alt="">
+            <ion-label>{{encomenda.descricao}}</ion-label>
+          </div>
+        </ion-item>
+    </ion-list>
   </div>
 </ion-content>

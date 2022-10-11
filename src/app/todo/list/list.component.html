@@ -1,0 +1,18 @@
+
+<ion-list>
+  <ion-list-header>
+    <ion-label>Organize suas tarefas</ion-label>
+  </ion-list-header>
+
+  <img *ngIf="listItem.length == 0" src="../../../assets/images/task.png" alt="Imagem ilustrativa, controle de tarefas">
+
+  <ion-item-sliding *ngFor="let item of this.listItem">
+    <ion-item>
+      <ion-label>{{item.tarefa}}</ion-label>
+      <ion-note slot="end">{{item.dataCriacao | date:'dd/MM/yyyy HH:mm'}}</ion-note>
+      
+      <ion-item-options side="end" (ionSwipe)="deleteTask(item)">
+      </ion-item-options>
+    </ion-item>
+  </ion-item-sliding>
+</ion-list>

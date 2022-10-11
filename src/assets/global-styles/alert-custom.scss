@@ -1,0 +1,32 @@
+:root{
+
+    .my-custom-alert-center-buttons .alert-wrapper{
+
+        .alert-head{
+            .alert-title{
+                color: var(--ion-color-medium);
+                text-align: center;
+                font-weight: bold;
+            }
+            
+        }
+        
+        .alert-button-group.sc-ion-alert-md{
+            justify-content: center;
+
+            button{
+                color: var(--ion-color-secondary);
+                font-weight: bold;
+
+                &#cancelTask{
+                    color: var(--ion-color-medium);
+                    font-weight: 500;
+                }
+                
+            }    
+        }    
+    }
+
+    
+
+}

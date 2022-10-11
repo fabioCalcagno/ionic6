@@ -1,0 +1,10 @@
+{
+    "/correiosApi": {
+      "target": "https://proxyapp.correios.com.br/v1/sro-rastro/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/correiosApi": ""
+      }
+    }
+  }
